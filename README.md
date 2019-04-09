@@ -10,35 +10,24 @@ To setup a free developer account, click [https://developer/ringcentral.com](her
 ### Clone - Setup - Run the project
 ```
 $ git clone https://github.com/ringcentral-tutorials/message-store-download-content-csharp-demo
-
-$ cd message-store-download-content-csharp-demo
-
-$ npm intall --save
-
-$ cp environment/dotenv-sandbox environment/.env-sandbox
-
-$ cp environment/dotenv-production environment/.env-production
 ```
+
+Open the "message-store-download-content-csharp-demo.sln" project with Microsoft Visual Studio IDE.
 
 ### Create an app
 * Create an application at https://developer.ringcentral.com.
 * Select `Server-only (No UI)` for the Platform type.
 * Add the `ReadMessages` permission for the app.
-* Copy the Client id and Client secret and add them to the `.env-[environment]` file.
+* Copy the Client id and Client secret and add them to the `Program.cs` file.
 ```
-RC_CLIENT_ID=
-RC_CLIENT_SECRET=
+RINGCENTRAL_CLIENTID=RINGCENTRAL_CLIENTSECRET=
 ```
-* Add the account login credentials to the `.env-[environment]` file.
+* Add the account login credentials to the `Program.cs` file.
 ```
-RC_USERNAME=
-RC_PASSWORD=
-RC_EXTENSION=
+RINGCENTRAL_USERNAME=
+RINGCENTRAL_PASSWORD=
+RINGCENTRAL_EXTENSION=
 ```
-
-Set `ENVIRONMENT=sandbox` in the `.env` file to run in the sandbox environment.
-
-Set `ENVIRONMENT=production` in the `.env` file to run in the production environment.
 
 ### Make sure you have some content
 * Login your RingCentral account from RingCentral soft-phone.
@@ -47,12 +36,10 @@ Set `ENVIRONMENT=production` in the `.env` file to run in the production environ
 * Send a few fax messages to your RingCentral number.
 
 ### Run the demo
-```
-$ node index.js
-```
+Run the demo app from Visual Studio
 
 ### RingCentral Developer Portal
 To setup a free developer account, click [here](https://developer/ringcentral.com)
 
-## RingCentral Node JS SDK
-The SDK is available at https://github.com/ringcentral/ringcentral-js
+## RingCentral .Net SDK
+The SDK is available at https://github.com/ringcentral/ringcentral.net

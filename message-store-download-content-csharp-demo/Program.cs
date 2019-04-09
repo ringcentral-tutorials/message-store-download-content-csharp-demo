@@ -27,14 +27,13 @@ namespace message_store_download_content_csharp_demo
             if (rc.token.access_token.Length > 0)
             {
                 var parameters = new ListMessagesParameters();
-                parameters.dateFrom = "2018-01-01T00:00:00.000Z";
-                parameters.dateTo = "2018-12-31T23:59:59.999Z";
-
+                parameters.dateFrom = "2019-01-01T00:00:00.000Z";
+                parameters.dateTo = "2019-03-31T23:59:59.999Z";
+                var resp = await rc.Restapi().Account().Extension().MessageStore().List(parameters);
                 var contentPath = "content/";
                 System.IO.Directory.CreateDirectory(contentPath);
                 // Limit API call to ~40 calls per minute to avoid exceeding API rate limit.
                 long timePerApiCall = 1200;
-                var resp = await rc.Restapi().Account().Extension().MessageStore().List(parameters);
                 foreach (var record in resp.records)
                 {
                     if (record.attachments != null)
@@ -70,8 +69,8 @@ namespace message_store_download_content_csharp_demo
                                     fileName = String.Format("sms_text_{0}.txt", record.attachments[0].id);
                                 }
                             }
-                            var start = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
                             var res = await rc.Restapi().Account().Extension().MessageStore(record.id).Content(attachment.id).Get();
+                            var start = new DateTimeOffset(DateTime.UtcNow).ToUnixTimeMilliseconds();
                             using (BinaryWriter writer = new BinaryWriter(System.IO.File.Open(contentPath + fileName, FileMode.Create)))
                             {
                                 writer.Write(res);
@@ -84,7 +83,6 @@ namespace message_store_download_content_csharp_demo
                             {
                                 Thread.Sleep((int)(timePerApiCall - consumed));
                             }
-
                         }
                     }
                 }
