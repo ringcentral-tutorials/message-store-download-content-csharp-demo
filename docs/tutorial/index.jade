@@ -1,0 +1,70 @@
+.chapter(data-title='Download Message Attachment Tutorial')
+  .step(data-title='Clone and Setup the project', data-file='../README.md' data-highlight='12-20')
+    :markdown
+      ### Clone and Setup the project
+      Clone the project from GitHub and install RingCentral Node JS SDK and dependencies.
+
+  .step(data-title='Create a RingCentral app', data-file='../README.md' data-highlight='23-27')
+    :markdown
+      ### Create a RingCentral app
+      If you don't know how to create a RingCentral app. Click https://developer.ringcentral.com/library/getting-started.html for instructions.
+
+  .step(data-title='Set Environment Variables', data-file='../environment/dotenv-sandbox')
+    :markdown
+     ### Set Environment Variables
+     Copy the Client id and Client secret and add them to the `environment/.env-sandbox` file.
+     ```
+     RC_CLIENT_ID=
+     RC_CLIENT_SECRET=
+     ```
+     Add the account login credentials to the `environment/.env-sandbox` file.
+     ```
+     RC_USERNAME=
+     RC_PASSWORD=
+     RC_EXTENSION=
+     ```
+
+     If you want to specify variables for your production environment, repeat this step for the `environment/.env-production` file.
+
+  .step(data-title='Login the platform', data-file='../index.js' data-highlight='1-25')
+    :markdown
+      ### Login using RingCentral Node JS SDK
+      Using a RingCentral SDK is the most convenient way to authenticate and access RingCentral platform services.
+
+      After login successfully, we call the function __read_message_store_message_content()__ to read and download the content.
+
+  .step(data-title='Read the user message store', data-file='../index.js' data-highlight='27-30')
+    :markdown
+      ### Read the user's message store
+      We call the "message-store" endpoint and specify the time period using the __dateFrom__ and __dateTo__ query parameters.
+
+      You can specify other query parameters such as __messageType__, __direction__ etc. if you want.
+
+  .step(data-title='Get ready to parse the response', data-file='../index.js' data-highlight='32-41')
+    :markdown
+      ### Get ready to parse the response
+      We parse the JSON response and get the amount of items from the __records__ array.
+
+      We also create a "content" folder to store message attachments.
+
+      To get ready for downloading a big amount of messages attachment, we limit API call to ~40 calls per minute to avoid exceeding API rate limit.
+      For that purpose, we use the _index_ variable to iterate through the __records__ array within the __setInterval__ timer function.
+
+  .step(data-title='Detect the message type', data-file='../index.js' data-highlight='43-64')
+    :markdown
+      ### Detect the message type
+      Each record may contain several attachments. We iterate through the attachments array, detect the message type to create a file name and file name extension accordingly.
+
+      We implement the __getFileExtensionFromMimeType()__ function to specify the filename extension based on the attachment __contentType__.
+
+  .step(data-title='Download the message attachment', data-file='../index.js' data-highlight='65-77')
+    :markdown
+      ### Download the message attachment
+      We download the attachment by calling the __platform.get()__ function to get the content from the __attachment.uri__.
+
+      Finally, we read the data buffer then save the data to a file under the __content__ folder.
+
+  .step(data-title='Complete the download process', data-file='../index.js' data-highlight='80-84')
+    :markdown
+      ### Complete the download process
+      We increase the __index__ each time after we read a record. If we read all the records from the records array, we clear the timer and finish the download process, otherwise, we wait for about 2 seconds then download the next attachment.
