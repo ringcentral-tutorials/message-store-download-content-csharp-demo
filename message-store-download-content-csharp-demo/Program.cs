@@ -8,13 +8,13 @@ namespace message_store_download_content_csharp_demo
 {
     public class Program
     {
-        const string RINGCENTRAL_CLIENTID = "wP8ISPyTShOGhyGxPuWC4A";
-        const string RINGCENTRAL_CLIENTSECRET = "qad6qHnyTRKjpWETAXrf1ghPXbLFD3QKWuNnJiPUd6IQ";
+        const string RINGCENTRAL_CLIENTID = "Your_App_Client_Id";
+        const string RINGCENTRAL_CLIENTSECRET = "Your_App_Client_Secret";
         const bool RINGCENTRAL_PRODUCTION = false;
 
-        const string RINGCENTRAL_USERNAME = "13129828160";
-        const string RINGCENTRAL_PASSWORD = "P@ssw0rd";
-        const string RINGCENTRAL_EXTENSION = "101";
+        const string RINGCENTRAL_USERNAME = "Your_Account_Username";
+        const string RINGCENTRAL_PASSWORD = "Your_Account_Password";
+        const string RINGCENTRAL_EXTENSION = "";
 
         static void Main(string[] args)
         {

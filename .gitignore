@@ -1,8 +1,9 @@
 # Output
+message-store-download-content-csharp-demo/.vs
 message-store-download-content-csharp-demo/bin/
 message-store-download-content-csharp-demo/obj/
 message-store-download-content-csharp-demo/content/
+message-store-download-content-csharp-demo/Properties/
+message-store-download-content-csharp-demo/content/
 
-# dotenv environment variables file
-environment/.env-sandbox
-environment/.env-production
+# environment variables file
