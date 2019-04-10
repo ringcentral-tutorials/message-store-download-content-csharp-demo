@@ -14,7 +14,7 @@ namespace download_content
 
         const string RINGCENTRAL_USERNAME = "Your_Account_Username";
         const string RINGCENTRAL_PASSWORD = "Your_Account_Password";
-        const string RINGCENTRAL_EXTENSION = "";
+        const string RINGCENTRAL_EXTENSION = "Your_Extension_Number";
 
         public static void Main(string[] args)
         {

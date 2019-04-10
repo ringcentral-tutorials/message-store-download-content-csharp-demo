@@ -18,15 +18,16 @@ Open the "message-store-download-content-csharp-demo.sln" project with Microsoft
 * Create an application at https://developer.ringcentral.com.
 * Select `Server-only (No UI)` for the Platform type.
 * Add the `ReadMessages` permission for the app.
-* Copy the Client id and Client secret and add them to the `Program.cs` file.
+* Copy the Client id and Client secret and assign them to the following variables in the `Program.cs` file.
 ```
-RINGCENTRAL_CLIENTID=RINGCENTRAL_CLIENTSECRET=
+const string RINGCENTRAL_CLIENTID = "Your_App_Client_Id";
+const string RINGCENTRAL_CLIENTSECRET = "Your_App_Client_Secret";
 ```
-* Add the account login credentials to the `Program.cs` file.
+* Specify the account login credentials to the following variables in the `Program.cs` file.
 ```
-RINGCENTRAL_USERNAME=
-RINGCENTRAL_PASSWORD=
-RINGCENTRAL_EXTENSION=
+const string RINGCENTRAL_USERNAME = "Your_Account_Username";
+const string RINGCENTRAL_PASSWORD = "Your_Account_Password";
+const string RINGCENTRAL_EXTENSION = "Your_Extension_Number";
 ```
 
 ### Make sure you have some content
