@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using RingCentral;
 
-namespace download_content
+namespace message_store_download_content_csharp_demo
 {
     class MainClass
     {

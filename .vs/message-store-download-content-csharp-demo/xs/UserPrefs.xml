@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{371255B2-14F8-4AA5-AC73-3C05E0497FAC}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="message-store-download-content-csharp-demo/Program.cs">
     <Files>
-      <File FileName="message-store-download-content-csharp-demo/Program.cs" Line="31" Column="46" />
+      <File FileName="message-store-download-content-csharp-demo/Program.cs" Line="7" Column="27" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.message-store-download-content-csharp-demo PreferredExecutionTarget="MonoDevelop.Default" />
