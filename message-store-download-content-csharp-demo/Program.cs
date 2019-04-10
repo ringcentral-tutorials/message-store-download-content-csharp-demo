@@ -4,9 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using RingCentral;
 
-namespace message_store_download_content_csharp_demo
+namespace download_content
 {
-    public class Program
+    class MainClass
     {
         const string RINGCENTRAL_CLIENTID = "Your_App_Client_Id";
         const string RINGCENTRAL_CLIENTSECRET = "Your_App_Client_Secret";
@@ -16,7 +16,7 @@ namespace message_store_download_content_csharp_demo
         const string RINGCENTRAL_PASSWORD = "Your_Account_Password";
         const string RINGCENTRAL_EXTENSION = "";
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             read_message_store_message_content().Wait();
         }
@@ -29,11 +29,12 @@ namespace message_store_download_content_csharp_demo
                 var parameters = new ListMessagesParameters();
                 parameters.dateFrom = "2019-01-01T00:00:00.000Z";
                 parameters.dateTo = "2019-03-31T23:59:59.999Z";
-                var resp = await rc.Restapi().Account().Extension().MessageStore().List(parameters);
                 var contentPath = "content/";
-                System.IO.Directory.CreateDirectory(contentPath);
+                if (!Directory.Exists(contentPath))
+                    System.IO.Directory.CreateDirectory(contentPath);
                 // Limit API call to ~40 calls per minute to avoid exceeding API rate limit.
                 long timePerApiCall = 1200;
+                var resp = await rc.Restapi().Account().Extension().MessageStore().List(parameters);
                 foreach (var record in resp.records)
                 {
                     if (record.attachments != null)

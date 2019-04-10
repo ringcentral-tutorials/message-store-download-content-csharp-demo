@@ -36,40 +36,47 @@
       ### Login using RingCentral .Net SDK
       Using a RingCentral SDK is the most convenient way to authenticate and access RingCentral platform services.
 
-      After login successfully, we read the user's message store and download the message content.
+      To login RingCentral platform, we call the __rc.Authorize()__ function, passing along the username, extension number (optional) and the password.
 
-  .step(data-title='Read the user message store', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='29-32')
+      Then we check if we have got the access token to make sure we have logged in successfully.
+
+  .step(data-title='Specify message store query parameters', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='29-31')
     :markdown
-      ### Read the user's message store
-      We call the "message-store" endpoint and specify the time period using the __dateFrom__ and __dateTo__ query parameters.
+      ### Specify message store query parameters
+      To call the "message-store" endpoint we specify the time period using the __dateFrom__ and __dateTo__ query parameters.
 
       You can specify other query parameters such as __messageType__, __direction__ etc. if you want.
 
-  .step(data-title='Get ready to parse the response', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='33-37')
+  .step(data-title='Get ready to save message attachments', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='32-36')
     :markdown
-      ### Get ready to parse the response
+      ### Get ready to save message attachments
       We create a "content" folder to store message attachments.
 
       To get ready for downloading a big amount of attachments, we need to limit API calls to meet the "Usage Plan Group" requirement to avoid exceeding API rate limit. For this API endpoint, it is 40 API calls per minute.
       For that purpose, we use the __timePerApiCall__ variable to cause a delay between API calls.
 
-      We implement a foreach loop to iterate through the __records__ array.
+  .step(data-title='Read the user message store', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='37-38')
+    :markdown
+      ### Read the user message store
+      We call the __MessageStore().List()__ function to read the messages metadata.
 
-  .step(data-title='Detect the message type', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='43-71')
+      Then we use a foreach loop to iterate through the __records__ array.
+
+  .step(data-title='Detect the message type', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='42-72')
     :markdown
       ### Detect the message type
       Each record may contain several attachments. We iterate through the attachments array, detect the message type to create a file name and file name extension accordingly.
 
       We implement the __getFileExtensionFromMimeType()__ function to specify the filename extension based on the attachment __contentType__.
 
-  .step(data-title='Download the message attachment', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='72-79')
+  .step(data-title='Download the message attachment', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='73-80')
     :markdown
       ### Download the message attachment
       We download the attachment identified by the __attachment.id__.
 
       Finally, we read the data then save the data to a file under the __content__ folder.
 
-  .step(data-title='Read the next attachment', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='80-85')
+  .step(data-title='Read the next attachment', data-file='../message-store-download-content-csharp-demo/Program.cs' data-highlight='81-86')
     :markdown
       ### Cause delay and read the next attachment
       We calculate the __consumed__ time it took to read and save an attachment, and cause a delay if the __consumed__ time is less than the __timePerApiCall__. Otherwise, we move on to download the next attachment.

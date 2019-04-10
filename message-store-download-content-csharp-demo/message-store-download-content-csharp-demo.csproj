@@ -1,14 +1,64 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <RootNamespace>message_store_download_content_csharp_demo</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="RingCentral.Net" Version="1.1.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="content\fax_attachment_5782026004.pdf" />
+    <None Remove="content\sms_text_5814363004.txt" />
+    <None Remove="content\sms_text_5781944004.txt" />
+    <None Remove="content\voicemail_recording_5622443004.mp3" />
+    <None Remove="content\voicemail_recording_5591309004.mp3" />
+    <None Remove="content\sms_text_5484225004.txt" />
+    <None Remove="content\sms_text_5484215004.txt" />
+    <None Remove="content\sms_text_5484213004.txt" />
+    <None Remove="content\sms_text_5484209004.txt" />
+    <None Remove="content\sms_text_5484207004.txt" />
+    <None Remove="content\sms_text_5483947004.txt" />
+    <None Remove="content\sms_text_5483943004.txt" />
+    <None Remove="content\sms_text_5483941004.txt" />
+    <None Remove="content\sms_text_5483935004.txt" />
+    <None Remove="content\sms_text_5483933004.txt" />
+    <None Remove="content\sms_text_5483927004.txt" />
+    <None Remove="content\sms_text_5483923004.txt" />
+    <None Remove="content\sms_text_5483915004.txt" />
+    <None Remove="content\sms_text_5483911004.txt" />
+    <None Remove="content\sms_text_5483909004.txt" />
+    <None Remove="content\sms_text_5483901004.txt" />
+    <None Remove="content\sms_text_5483891004.txt" />
+    <None Remove="content\voicemail_recording_5475958004.mp3" />
+    <None Remove="content\voicemail_recording_4605400004.mp3" />
+    <None Remove="content\voicemail_recording_4548230004.mp3" />
+    <None Remove="content\voicemail_recording_4548192004.mp3" />
+    <None Remove="content\voicemail_recording_4548142004.mp3" />
+    <None Remove="content\voicemail_recording_4546820004.mp3" />
+    <None Remove="content\voicemail_recording_4546798004.mp3" />
+    <None Remove="content\voicemail_recording_4544939004.mp3" />
+    <None Remove="content\voicemail_recording_4544893004.mp3" />
+    <None Remove="content\voicemail_recording_4544589004.mp3" />
+    <None Remove="content\voicemail_recording_4490534004.mp3" />
+    <None Remove="content\voicemail_recording_4490474004.mp3" />
+    <None Remove="content\voicemail_recording_4478300004.mp3" />
+    <None Remove="content\voicemail_recording_4478298004.mp3" />
+    <None Remove="content\sms_text_4453359004.txt" />
+    <None Remove="content\sms_text_4402807004.txt" />
+    <None Remove="content\sms_text_4400431004.txt" />
+    <None Remove="content\sms_text_4400429004.txt" />
+    <None Remove="content\sms_text_4385600004.txt" />
+    <None Remove="content\sms_text_4385170004.txt" />
+    <None Remove="content\sms_text_4385156004.txt" />
+    <None Remove="content\sms_text_4385074004.txt" />
+    <None Remove="content\sms_text_4385054004.txt" />
+    <None Remove="content\sms_text_4384261004.txt" />
+    <None Remove="content\voicemail_recording_4360132004.mp3" />
+    <None Remove="content\fax_attachment_5782682004.pdf" />
+    <None Remove="content\fax_attachment_5782026004.pdf" />
+    <None Remove="content\sms_text_5781944004.txt" />
   </ItemGroup>
 </Project>
